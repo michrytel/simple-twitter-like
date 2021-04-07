@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from "react";
-import axios, {AxiosResponse} from "axios";
+import React, {ChangeEvent, ChangeEventHandler, FormEvent, useState} from "react";
 import {Link} from "react-router-dom";
 
 interface HomeProps {
     logOut(): void;
+    posts: Array<Object>
 }
-
 interface Object {
     userId: number,
     id: number,
@@ -13,20 +12,10 @@ interface Object {
     body: string
 }
 
-const Home: React.FC<HomeProps> = ({logOut}) => {
+const Home: React.FC<HomeProps> = ({logOut, posts}) => {
     let [search, setSearch] = useState<string>("")
-    let [posts, setPosts] = useState<Array<Object>>([])
-    let changeHandler = (e: React.FormEvent<HTMLInputElement>) => setSearch(e.currentTarget.value)
-    useEffect(() => {
-        getPosts()
-    }, [])
-    const getPosts = () => {
-        const url = "https://jsonplaceholder.typicode.com/posts"
-        axios.get(url).then((response: AxiosResponse<any>) => {
-            setPosts(response.data);
-        }).catch((error) => {
-            console.log("error", error);
-        })
+    const changeHandler = (e: React.FormEvent<HTMLInputElement>) => {
+        setSearch(e.currentTarget.value)
     }
     const filtered = posts.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()));
     return (
