@@ -24,7 +24,7 @@ export const Login: React.FC<Props> = ({onSubmit}) => {
                             if (!values.username || values.username.length < 5) {
                                 errors.username = 'Username needs to be at least 5 characters long';
                             }
-                            if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i.test(values.password)) {
+                            if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,100}$/i.test(values.password)) {
                                 errors.password = 'Password must contain 8 characters, at least one small letter, at least one capital letter, at least one number';
                             }
                             return errors
