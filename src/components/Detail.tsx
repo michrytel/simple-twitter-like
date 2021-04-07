@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Link, RouteComponentProps} from "react-router-dom";
+import React from "react";
+import {Link} from "react-router-dom";
 
 interface Object {
     userId: number,

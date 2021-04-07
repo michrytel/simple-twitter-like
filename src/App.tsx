@@ -27,8 +27,8 @@ function App() {
         })
     }
     const logOut = () => {
-        setDisplay(0);
         sessionStorage.clear()
+        setDisplay(0);
     }
     if (sessionStorage.length > 0 || display === 1) {
         return (
@@ -37,7 +37,7 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={() => <Home logOut={logOut} posts={posts}/>}/>
                     </Switch>
-                    {posts.map(el => <Switch>
+                    {posts.map(el => <Switch key={el.id}>
                         <Route exact path={`/${el.id}`} component={() => <Detail post={el}/>}/>
                     </Switch>)}
                 </Router>
