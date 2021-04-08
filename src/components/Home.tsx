@@ -20,13 +20,17 @@ const Home: React.FC<HomeProps> = ({logOut, posts}) => {
     const changeHandler = (e: React.FormEvent<HTMLInputElement>) => {
         setSearch(e.currentTarget.value)
     }
-    const filtered = posts.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()));
     useEffect(() => {
+        let helper = 0;
         const interval = setInterval(() => {
-            setDelayed(arr => [...arr, filtered[delayed.length]])
+                setDelayed(arr => [...arr, posts[helper]])
+                helper++;
+                if (helper == 100) clearInterval(interval)
         }, 1000);
         return () => clearInterval(interval)
     }, []);
+    const filtered = delayed.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()));
+
 
 
     return (
@@ -36,7 +40,7 @@ const Home: React.FC<HomeProps> = ({logOut, posts}) => {
                 <input type="text" value={search} onChange={changeHandler}/>
             </div>
             <div className="post__container">
-                {delayed.map(el =>
+                {filtered.map(el =>
                     <div className="post" key={el.id}>
                         <h2>{el.userId}</h2>
                         <Link to={`/${el.id}`}>{el.title}</Link>
