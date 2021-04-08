@@ -9,11 +9,11 @@ interface Object {
 }
 
 interface Post {
-    post: Object
+    post: Object,
+    names: string[]
 }
 
-const Detail: React.FC<Post> = ({post}) => {
-    const names: string[] = ["Michael", "Kate", "Philip", "Tony", "Casper", "John", "Perry", "Marc", "Suzanne", "Marlene"]
+const Detail: React.FC<Post> = ({post, names}) => {
     return (
         <section className="detail__container">
             <Link to="/">Go Back</Link>

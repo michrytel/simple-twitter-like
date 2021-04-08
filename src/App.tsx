@@ -13,6 +13,7 @@ interface Object {
 }
 
 function App() {
+    const names: string[] = ["Michael", "Kate", "Philip", "Tony", "Casper", "John", "Perry", "Marc", "Suzanne", "Marlene"]
     let [posts, setPosts] = useState<Array<Object>>([])
     useEffect(() => {
         getPosts()
@@ -36,11 +37,11 @@ function App() {
             <div className="App">
                 <Router>
                     <Switch>
-                        <Route exact path="/" component={() => <Home logOut={logOut} posts={posts}/>}/>
+                        <Route exact path="/" component={() => <Home logOut={logOut} posts={posts} names={names}/>}/>
                     </Switch>
                     {posts.map(el =>
                         <Switch key={el.id}>
-                            <Route exact path={`/${el.id}`} component={() => <Detail post={el}/>}/>
+                            <Route exact path={`/${el.id}`} component={() => <Detail post={el} names={names}/>}/>
                         </Switch>)}
                 </Router>
             </div>

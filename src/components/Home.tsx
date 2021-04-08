@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
 interface HomeProps {
-    logOut(): void;
-
-    posts: Array<Object>
+    logOut(): void,
+    names:string[],
+    posts: Array<Object>,
 }
 
 interface Object {
@@ -14,7 +14,7 @@ interface Object {
     body: string
 }
 
-const Home: React.FC<HomeProps> = ({logOut, posts}) => {
+const Home: React.FC<HomeProps> = ({logOut, posts, names}) => {
     let [search, setSearch] = useState<string>("")
     let [delayed, setDelayed] = useState<Array<Object>>([])
     const changeHandler = (e: React.FormEvent<HTMLInputElement>) => {
@@ -29,7 +29,6 @@ const Home: React.FC<HomeProps> = ({logOut, posts}) => {
         }, 1000);
         return () => clearInterval(interval)
     }, []);
-    const names: string[] = ["Michael", "Kate", "Philip", "Tony", "Casper", "John", "Perry", "Marc", "Suzanne", "Marlene"]
 
     if (posts[0]) {
         const filtered = delayed.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()))

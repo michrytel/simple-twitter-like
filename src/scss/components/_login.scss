@@ -5,7 +5,7 @@
   width: 100%;
   height: 100vh;
   .login {
-    border: 1px solid darkgrey;
+    border: 1px solid black;
     padding: 5em;
     display: flex;
     justify-content: center;
@@ -31,6 +31,7 @@
         gap: 1em;
         label {
           position: relative;
+          font-weight: bold;
           .error__user {
             font-size: 15px;
             color: darkred;
