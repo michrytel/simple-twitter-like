@@ -4,7 +4,6 @@ import Error from "./Error";
 
 interface HomeProps {
     logOut(): void,
-
     names: string[],
     posts: Array<Object>,
 }
@@ -30,7 +29,7 @@ const Home: React.FC<HomeProps> = ({logOut, posts, names}) => {
             if (helper === 100) clearInterval(interval)
         }, 1000);
         return () => clearInterval(interval)
-    }, []);
+    }, [posts]);
 
     if (posts[0]) {
         const filtered = delayed.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()))
