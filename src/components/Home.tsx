@@ -40,6 +40,7 @@ const Home: React.FC<HomeProps> = ({logOut, posts, names}) => {
                     <button onClick={logOut}>Log Out</button>
                     <input type="text" value={search} onChange={changeHandler} placeholder="search"/>
                 </div>
+                <Error/>
                 <div className="post__container">
                     {filtered.map(el =>
                         <div className="post" key={el.id}>
@@ -57,6 +58,7 @@ const Home: React.FC<HomeProps> = ({logOut, posts, names}) => {
                     <button onClick={logOut}>Log Out</button>
                     <input type="text" value={search} onChange={changeHandler} placeholder="search"/>
                 </div>
+                <Error/>
             </section>
         )
     }
