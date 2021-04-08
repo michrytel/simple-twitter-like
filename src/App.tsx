@@ -13,14 +13,14 @@ interface Object {
 }
 
 function App() {
-    let [display, setDisplay] = useState<number>(0)
     let [posts, setPosts] = useState<Array<Object>>([])
     useEffect(() => {
         getPosts()
     }, [])
     const getPosts = () => {
         const url = "https://jsonplaceholder.typicode.com/posts"
-        axios.get(url).then((response: AxiosResponse) => {
+         axios.get(url).then((response: AxiosResponse) => {
+            response.data.reverse()
             setPosts(response.data);
         }).catch((error) => {
             console.log("error", error);
@@ -28,9 +28,10 @@ function App() {
     }
     const logOut = () => {
         sessionStorage.clear()
-        setDisplay(0);
+        window.location.reload()
     }
-    if (sessionStorage.length > 0 || display === 1) {
+
+    if (sessionStorage.length ) {
         return (
             <div className="App">
                 <Router>
@@ -47,7 +48,7 @@ function App() {
         return (
             <Login onSubmit={({username, password}) => {
                 window.sessionStorage.setItem("username", username)
-                setDisplay(1)
+                window.location.reload()
             }}/>
         )
     }

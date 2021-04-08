@@ -11,13 +11,15 @@ interface Object {
 interface Post {
     post: Object
 }
+
 const Detail: React.FC<Post> = ({post}) => {
+    const names: string[] = ["Michael", "Kate", "Philip", "Tony", "Casper"]
     return (
         <section className="detail__container">
             <Link to="/">Go Back</Link>
             <h2>Detais</h2>
             <div className="detail">
-                <h2>UserID: {post.userId}</h2>
+                <h2>UserID: {names[post.userId]}</h2>
                 <h2>ID: {post.id}</h2>
                 <h2>Title: {post.title}</h2>
                 <p>Body: {post.body}</p>
