@@ -3,6 +3,7 @@ import {Login} from "./components/Login";
 import Home from "./components/Home";
 import Detail from "./components/Detail";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import PageNotFound from "./components/PageNotFound";
 import axios, {AxiosResponse} from "axios";
 
 interface Object {
@@ -38,11 +39,11 @@ function App() {
                 <Router>
                     <Switch>
                         <Route exact path="/" component={() => <Home logOut={logOut} posts={posts} names={names}/>}/>
+                        {posts.map(el =>
+                            <Route key={el.id} exact path={`/${el.id}`}
+                                   component={() => <Detail post={el} names={names}/>}/>)}
+                        <Route component={PageNotFound}/>
                     </Switch>
-                    {posts.map(el =>
-                        <Switch key={el.id}>
-                            <Route exact path={`/${el.id}`} component={() => <Detail post={el} names={names}/>}/>
-                        </Switch>)}
                 </Router>
             </div>
         )

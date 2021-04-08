@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
+import Error from "./Error";
 
 interface HomeProps {
     logOut(): void,
-    names:string[],
+
+    names: string[],
     posts: Array<Object>,
 }
 
@@ -49,7 +51,14 @@ const Home: React.FC<HomeProps> = ({logOut, posts, names}) => {
             </section>
         )
     } else {
-        return null
+        return (
+            <section className="home">
+                <div className="helpers">
+                    <button onClick={logOut}>Log Out</button>
+                    <input type="text" value={search} onChange={changeHandler} placeholder="search"/>
+                </div>
+            </section>
+        )
     }
 }
 
