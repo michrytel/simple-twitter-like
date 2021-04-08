@@ -23,32 +23,36 @@ const Home: React.FC<HomeProps> = ({logOut, posts}) => {
     useEffect(() => {
         let helper = 0;
         const interval = setInterval(() => {
-                setDelayed(arr => [...arr, posts[helper]])
-                helper++;
-                if (helper == 100) clearInterval(interval)
+            setDelayed(arr => [...arr, posts[helper]])
+            helper++;
+            if (helper === 100) clearInterval(interval)
         }, 1000);
         return () => clearInterval(interval)
     }, []);
-    const filtered = delayed.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()));
+    const names: string[] = ["Michael", "Kate", "Philip", "Tony", "Casper", "John", "Perry", "Marc", "Suzanne", "Marlene"]
 
-
-
-    return (
-        <section className="Home">
-            <div className="helpers">
-                <button onClick={logOut}>Log Out</button>
-                <input type="text" value={search} onChange={changeHandler}/>
-            </div>
-            <div className="post__container">
-                {filtered.map(el =>
-                    <div className="post" key={el.id}>
-                        <h2>{el.userId}</h2>
-                        <Link to={`/${el.id}`}>{el.title}</Link>
-                    </div>
-                )}
-            </div>
-        </section>
-    )
+    if (posts[0]) {
+        const filtered = delayed.filter(post => post.title.toLowerCase().includes(search.toLowerCase()) || post.body.toLowerCase().includes(search.toLowerCase()))
+        return (
+            <section className="home">
+                <div className="helpers">
+                    <button onClick={logOut}>Log Out</button>
+                    <input type="text" value={search} onChange={changeHandler} placeholder="search"/>
+                </div>
+                <div className="post__container">
+                    {filtered.map(el =>
+                        <div className="post" key={el.id}>
+                            <h2>User: {names[+el.userId - 1]}</h2>
+                            <Link to={`/${el.id}`}>Title: {el.title}</Link>
+                        </div>
+                    )}
+                </div>
+            </section>
+        )
+    } else {
+        return null
+    }
 }
+
 
 export default Home

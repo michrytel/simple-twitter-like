@@ -1,0 +1,80 @@
+.home {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+  @include mobile {
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+  }
+    .helpers {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+      @include mobile {
+        flex-direction: column;
+        width: 100%;
+      }
+      button {
+        width: 19%;
+        height: 3em;
+        border: 1px solid #424141;
+        background-color: lightsteelblue;
+        padding: 1em;
+        @include mobile {
+          width: 80%;
+          padding: 0;
+        }
+      }
+      input {
+        width: 80%;
+        height: 1em;
+        border: 1px solid #424141;
+        background-color: lightsteelblue;
+        padding: 1em;
+        resize: none;
+        &:focus {
+          outline: none;
+          padding: 1.5em;
+        }
+        @include mobile {
+          width: 80%;
+        }
+      }
+    }
+    .post__container {
+      margin-top: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      .post {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 26%;
+        padding: 2em;
+        border: 1px solid black;
+        background-color: #d2e4ff;
+        @include mobile {
+          flex: 100%;
+          padding: 1em;
+        }
+        h2 {
+          @include mobile {
+            font-size: 1em;
+          }
+          }
+
+        a {
+          text-decoration: none;
+          color: #424141;
+          width: 100%;
+          padding: 1.5em 4em;
+          text-align: center;
+
+        }
+      }
+    }
+  }

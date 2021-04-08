@@ -1,0 +1,56 @@
+.detail__container {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #424141;
+
+
+  a {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.3em;
+    border: 1px solid #424141;
+    color: #424141;
+    background-color: lightsteelblue;
+    font-size: 1.5em;
+  }
+  h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 3em;
+    margin: 0.5em;
+  }
+  .detail {
+    border: 1px solid #424141;
+    padding: 5em;
+    margin: 0;
+    background-color: #d2e4ff;
+    @include mobile {
+      padding: 1em;
+    }
+    h2 {
+      text-align: left;
+      font-size: 2em;
+      margin: 0;
+      @include mobile {
+        font-size: 1em;
+      }
+    }
+    h3 {
+      margin: 0em;
+      font-size: 2em;
+      @include mobile {
+        font-size: 1em;
+      }
+    }
+    p {
+      font-size: 2em;
+      @include mobile {
+        font-size: 1em;
+      }
+    }
+  }
+}

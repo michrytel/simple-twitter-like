@@ -19,7 +19,8 @@ function App() {
     }, [])
     const getPosts = () => {
         const url = "https://jsonplaceholder.typicode.com/posts"
-         axios.get(url).then((response: AxiosResponse) => {
+        axios.get(url).then((response: AxiosResponse) => {
+            console.log("downloaded data")
             response.data.reverse()
             setPosts(response.data);
         }).catch((error) => {
@@ -30,17 +31,17 @@ function App() {
         sessionStorage.clear()
         window.location.reload()
     }
-
-    if (sessionStorage.length ) {
+    if (sessionStorage.length) {
         return (
             <div className="App">
                 <Router>
                     <Switch>
                         <Route exact path="/" component={() => <Home logOut={logOut} posts={posts}/>}/>
                     </Switch>
-                    {posts.map(el => <Switch key={el.id}>
-                        <Route exact path={`/${el.id}`} component={() => <Detail post={el}/>}/>
-                    </Switch>)}
+                    {posts.map(el =>
+                        <Switch key={el.id}>
+                            <Route exact path={`/${el.id}`} component={() => <Detail post={el}/>}/>
+                        </Switch>)}
                 </Router>
             </div>
         )
