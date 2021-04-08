@@ -22,6 +22,9 @@
         border: 1px solid #424141;
         background-color: lightsteelblue;
         padding: 1em;
+        &:focus {
+          outline: none;
+        }
         @include mobile {
           width: 80%;
           padding: 0;
