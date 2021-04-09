@@ -1,5 +1,6 @@
 import {Login} from "../components/Login"
 import * as ReactDOM from "react-dom"
+import '@testing-library/jest-dom'
 describe('Login component test', () => {
     let container: HTMLDivElement
     beforeEach(() => {

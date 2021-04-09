@@ -1,5 +1,6 @@
 import * as ReactDOM from "react-dom"
 import Home from "../components/Home";
+import '@testing-library/jest-dom'
 const logOut = () => {
     sessionStorage.clear()
     window.location.reload()

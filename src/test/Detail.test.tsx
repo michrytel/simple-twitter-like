@@ -1,6 +1,7 @@
 import * as ReactDOM from "react-dom"
 import Detail from "../components/Detail";
 import {BrowserRouter} from "react-router-dom";
+import '@testing-library/jest-dom'
 
 const posts =
     {

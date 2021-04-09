@@ -1,6 +1,7 @@
 import * as ReactDOM from "react-dom";
 import PageNotFount from "../components/PageNotFound";
 import {BrowserRouter} from "react-router-dom";
+import '@testing-library/jest-dom'
 
 describe('PageNotFound component test', () => {
     let container: HTMLDivElement
