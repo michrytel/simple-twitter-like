@@ -3,7 +3,7 @@ It's my very first Typescript project
 
 Live: https://simple-twitter-like.herokuapp.com/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ##### Used libraries: Formik, Jest, Axios, 
 
