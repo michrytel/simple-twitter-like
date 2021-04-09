@@ -38,6 +38,9 @@
             color: darkred;
             position: absolute;
             top: 90px;
+            @include mobile {
+              font-size: 12px;
+            }
           }
           p {}
           input {
