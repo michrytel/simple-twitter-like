@@ -1,8 +1,11 @@
-# Getting Started with Create React App
+# Frontend challenge
+It's my very first Typescript project
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+######Used libraries: Formik, Jest, Axios, 
+
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -18,29 +21,87 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+----
+-----
+-----
+## Description
 
-### `npm run build`
+Build a simple social networking application, similar to Twitter, using publicly available API. The application should support the scenarios below.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🕒You have one week to give us back the challenge.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The code needs to be hosted on github.com on a public repository.
 
-### `npm run eject`
+### Login screen
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+User needs to login to enter the application. It is not required to authenticate user in backend, following is enough:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- username is at least 5 characters long
+- password contains 8 characters, at least one small letter, at least one capital letter, at least one number
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Store user credentials in the session-storage. Prepare logout functionality.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Wall
 
-## Learn More
+User should be able to see posts on a wall. Posts should come from
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+https://jsonplaceholder.typicode.com/posts
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+and should be displayed in descending order (by "id" field). Posts should be displayed with delay - one post each second (up to the number of posts available).
+Posts should be displayed in form of tiles and whole page should be responsive:
+
+- three columns with tiles for desktop
+- two columns with tiles for tablet
+- one column with tiles for mobile
+
+#### Search
+
+Search box should appear at the top of posts list. It should filter posts **visible** on the screen (by title and body).
+
+### Post details
+
+User should be able to see post details after clicking on post tile. UserId should be mapped to a random name. Appropriate routing should be in place, so post ID should appear in the URL.
+Post details should come from:
+
+```
+https://jsonplaceholder.typicode.com/posts/{postId}
+```
+
+### Error handling
+
+In case of HTTP connection error please display Modal dialog with error information. Error handling component (dialog) should be shared across wall and post details components.
+PageNotFound handler should be prepared as well.
+
+### React hooks
+
+Please do use React Hooks.
+
+## Technologies
+
+Application should be written using React 16+ (accordingly to received instructions). The code needs to be written in Typescript, and styles have to use SCSS.
+Please add Unit testing.
+
+## Bonus
+
+You can add the do the following point to surprise us:
+
+- You can add into the `README.md` file what you would have change if you had more time and/or why you use this or that library.
+- Add any tools to imporve developement (git hooks via husky, linters, ...) would be a fair advantage.
+- Not using a UI library (Material UI, Bootstrap, ...) would be good (the design is not the most important part).
+- Adding all unit tests would be a fair advantage.
+
+## References
+
+- API resource
+
+```
+https://jsonplaceholder.typicode.com/
+```
+
+## DESIGN
+
+![Design](https://github.com/HStoneAge/code-challenge/blob/master/desing.png?raw=true)
