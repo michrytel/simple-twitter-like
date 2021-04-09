@@ -22,6 +22,5 @@ describe('Login component test', () => {
         expect(inputs[1].name).toBe("password");
         const button = container.querySelector("button");
         expect(button).toBeInTheDocument();
-
     })
 });
